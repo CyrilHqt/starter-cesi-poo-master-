@@ -1,69 +1,37 @@
 <?php
 include("partials/header.php");
 include("partials/menu.php");
-
-$p1 = [
-    "Nom" => "Luke",
-    "Img" => "player.png",
-    "Age" => 27,
-    "Sexe" => true,
-    "Force" => 5,
-    "Agilité" =>4
-];
-// $p2 = [
-//     "Nom" => "Katy",
-//     "Img" => "playerF.png",
-//     "Age" => 22,
-//     "Sexe" => false,
-//     "Force" => 3,
-//     "Agilité" =>6
-// ];
-// $p3 = [
-//     "Nom" => "Marc",
-//     "Img" => "playerM.png",
-//     "Age" => 33,
-//     "Sexe" => true,
-//     "Force" => 7,
-//     "Agilité" =>2
-// ];
-
-// $persos = [$p1,$p2,$p3];
-
-class personnage{
-    public $nom = "Luke";
-    public $img = ""
-}
-
+require_once "classes/Personnage.php";
 
 ?>
 
-    <h2> Personnage : </h2>
+<h2> Personnage : </h2>
 <?php
 
-    echo "<div class='gauche'>";
-    echo "<img src = 'assets/img/".$perso['Img']."' alt = '".$perso['Img']."' />";
-    echo "</div>";
-    echo "<div class='gauche'>";
-    afficherPerso($p1);
-    echo "</div>";
-    echo "<div class='clearB'></div>";
+$p1 = new Personnage("Luke", 27, true, 5,4,"player.png");
+$p1->afficherInfo();
+$p2 = new Personnage("Katy", 22, false, 3,6,"playerF.png");
+$p2->afficherInfo();
+$p3 = new Personnage("Marc", 33, true, 7,2,"playerM.png");
+$p3->afficherInfo();
 
-
-function afficherPerso($personnage){
-    foreach($personnage as $index => $value){
-        if($index !== "Img" && $index !== "Sexe"){
-            echo "<b>".$index."</b> : ". $value . "<br/>";
-        }
-        if($index === "Sexe"){
-            echo "<b>Sexe</b> :";
-            if($value){
-                echo "Homme <br/>";
-            } else {
-                echo "Femme <br/>";
-            }
-        }
-    }
-}
+// function afficherPerso($personnage)
+// {
+//     foreach ($personnage as $index => $value) {
+//         if ($index !== "Img" && $index !== "Sexe") {
+//             echo "<b>" . $index . "</b> : " . $value . "<br/>";
+//         }
+//         if ($index === "Sexe") {
+//             echo "<b>Sexe</b> :";
+//             if ($value) {
+//                 echo "Homme <br/>";
+//             } else {
+//                 echo "Femme <br/>";
+//             }
+//         }
+//     }
+// }
 ?>
 <?php
-include("partials/footer.php"); ?>
+include("partials/footer.php");
+?>
