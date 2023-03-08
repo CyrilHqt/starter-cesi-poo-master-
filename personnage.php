@@ -66,5 +66,4 @@ function afficherPerso($personnage){
 }
 ?>
 <?php
-include("partials/footer.php");
-?>
+include("partials/footer.php"); ?>
