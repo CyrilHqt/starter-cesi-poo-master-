@@ -8,9 +8,12 @@ class Panier{
     private array $pommes = [];
     private array $cerises = [];
 
+    private static array $paniers = [];
+
     public function __construct(){
         $this->identifiant = self::$prochainIdentifiant;
         self::$prochainIdentifiant ++;
+        self::$paniers[]= $this;
     }
 
     /**
@@ -27,6 +30,11 @@ class Panier{
         }
     }
 
+    public static function getListPanier():array
+    {
+        return self::$paniers;
+    }
+
     /**
      * Permet de gÃ©rer l'affichage de l'objet Fruits
      * @return string
@@ -41,5 +49,9 @@ class Panier{
         }
         return $affichage;
     }
+
+    public function getIdentifiant(): int
+    {
+        return $this->identifiant;
+    }
 }
-?>
