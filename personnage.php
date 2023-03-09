@@ -1,36 +1,33 @@
 <?php
+
+use classes\Warrior;
+
 include("partials/header.php");
 include("partials/menu.php");
 require_once "classes/Personnage.php";
+require_once "classes/Warrior.php";
 
 ?>
 
 <h2> Personnage : </h2>
 <?php
 
-$p1 = new Personnage("Luke", 27, true, 5,4,"player.png");
-$p1->afficherInfo();
-$p2 = new Personnage("Katy", 22, false, 3,6,"playerF.png");
-$p2->afficherInfo();
-$p3 = new Personnage("Marc", 33, true, 7,2,"playerM.png");
-$p3->afficherInfo();
+$p1 = new Personnage("Luke", 27, Personnage::HOMME , Personnage::FORCE_MEDIUM, Personnage::AGILITE_MEDIUM,"player.png");
+$p2 = new Personnage("Katy", 22, Personnage::FEMME, Personnage::FORCE_MIN, Personnage::AGILITE_MAX,"playerF.png");
+$p3 = new Personnage("Marc", 33, Personnage::HOMME, Personnage::FORCE_MAX, Personnage::AGILITE_MIN,"playerM.png");
+$p4 = new Warrior("Aragorn", 38, Personnage::HOMME , Personnage::FORCE_MEDIUM, Personnage::AGILITE_MEDIUM,"player.png", "Épée");
 
-// function afficherPerso($personnage)
-// {
-//     foreach ($personnage as $index => $value) {
-//         if ($index !== "Img" && $index !== "Sexe") {
-//             echo "<b>" . $index . "</b> : " . $value . "<br/>";
-//         }
-//         if ($index === "Sexe") {
-//             echo "<b>Sexe</b> :";
-//             if ($value) {
-//                 echo "Homme <br/>";
-//             } else {
-//                 echo "Femme <br/>";
-//             }
-//         }
-//     }
-// }
+$persos = Personnage::getListPersonnage();
+
+foreach ($persos as $perso) {
+    $perso->afficherInfo();
+    echo "<br>--------------------";
+    echo "<br>";
+}
+
+echo $p4->getWeapon();
+
+
 ?>
 <?php
 include("partials/footer.php");
