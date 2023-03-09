@@ -4,32 +4,29 @@ use classes\Warrior;
 
 include("partials/header.php");
 include("partials/menu.php");
-require_once "classes/Personnage.php";
-require_once "classes/Warrior.php";
 
+require_once('classes/Personnage.php');
+require_once('classes/Warrior.php');
 ?>
 
-
-
-
-<h2> Personnage : </h2>
+    <h2> Personnage : </h2>
 <?php
+    $p1 = new Personnage("Luke", 27, Personnage::HOMME, Personnage::FORCE_MED, Personnage::AGILITE_MED, "player.png");
 
-$p1 = new Personnage("Luke", 27, Personnage::HOMME , Personnage::FORCE_MEDIUM, Personnage::AGILITE_MEDIUM,"player.png");
-$p2 = new Personnage("Katy", 22, Personnage::FEMME, Personnage::FORCE_MIN, Personnage::AGILITE_MAX,"playerF.png");
-$p3 = new Personnage("Marc", 33, Personnage::HOMME, Personnage::FORCE_MAX, Personnage::AGILITE_MIN,"playerM.png");
-$p4 = new Warrior("Aragorn", 38, Personnage::HOMME , Personnage::FORCE_MEDIUM, Personnage::AGILITE_MEDIUM,"player.png", "Épée");
+    $p2 = new Personnage("Katy", 22, Personnage::FEMME, Personnage::FORCE_MIN, Personnage::AGILITE_MAX, "playerF.png" );
 
-$persos = Personnage::getListPersonnage();
+    $p3 = new Personnage("Marc", 33, Personnage::HOMME, Personnage::FORCE_MAX, Personnage::AGILITE_MIN, "playerM.png");
 
-foreach ($persos as $perso) {
-    $perso->afficherInfo();
-    echo "<br>--------------------";
-    echo "<br>";
-}
+    $p4 = new Warrior("Aragorn", 38, Personnage::HOMME, Personnage::FORCE_MAX, Personnage::AGILITE_MAX, "playerM.png", "Épée");
 
-echo $p4->getWeapon();
-
+    $persos = Personnage::getListPersonnage();
+    foreach($persos as $perso){
+        $perso->afficherInfo();
+        echo "<br/>------------------------------";
+        echo "<br/>";
+    }
+    echo "<br />";
+    echo $p4->getWeapon();
 
 ?>
 <?php

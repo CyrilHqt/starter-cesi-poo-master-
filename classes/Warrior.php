@@ -1,23 +1,33 @@
 <?php
+
 namespace classes;
-use Personnage; 
+use Personnage;
 
-class Warrior extends Personnage{
-    private $weapon;
+class Warrior extends Personnage
+{
+    private string $weapon;
 
-   public function construct($nom, $age, $sexe, $force, $agilite, $img, $weapon)
-   {
-    parent::construct($nom, $age, $sexe, $force, $agilite, $img);
-    $this->weapon = $weapon;
-   }
+    public function __construct($nom, $age, $sexe, $force, $agilite, $img, $weapon)
+    {
+        parent::__construct($nom, $age, $sexe, $force, $agilite, $img);
+        $this->weapon=$weapon;
+    }
 
-   public function getWeapon(): string{
-    return $this->weapon;
-   }
+    /**
+     * @return string
+     */
+    public function getWeapon(): string
+    {
+        return $this->weapon;
+    }
 
-   public function setWeapon($weapon): void{
-    $this->weapon = $weapon;
-   }
+    /**
+     * @param string $weapon
+     */
+    public function setWeapon(string $weapon): void
+    {
+        $this->weapon = $weapon;
+    }
 }
 
 ?>
