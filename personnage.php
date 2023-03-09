@@ -9,6 +9,9 @@ require_once "classes/Warrior.php";
 
 ?>
 
+
+
+
 <h2> Personnage : </h2>
 <?php
 

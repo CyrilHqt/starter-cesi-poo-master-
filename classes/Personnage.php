@@ -1,6 +1,5 @@
 <?php
-class Personnage
-{
+class Personnage{
 
     private $nom;
     private $age;
@@ -8,6 +7,19 @@ class Personnage
     private $force;
     private $agilite;
     private $img;
+
+    const HOMME = true;
+    const FEMME = false;
+
+    const FORCE_MIN = 3;
+    const FORCE_MEDIUM = 5;
+    const FORCE_MAX = 7;
+
+    const AGILITE_MIN = 2;
+    const AGILITE_MEDIUM = 4;
+    const AGILITE_MAX = 5;
+
+    private static $personnages = [];
 
     public function __construct($nom, $age, $sexe, $force, $agilite, $img)
     {
@@ -17,29 +29,34 @@ class Personnage
         $this->force = $force;
         $this->agilite = $agilite;
         $this->img = $img;
+        self::$personnages[] = $this;
     }
 
-    public function setNom($nom)
+    public static function getListPersonnage(): array{
+        return self::$personnages;
+    }
+
+    public function setNom($nom): void
     {
         $this->nom = $nom;
     }
-    public function setAge($age)
+    public function setAge($age): void
     {
         $this->age = $age;
     }
-    public function setSexe($sexe)
+    public function setSexe($sexe): void
     {
         $this->sexe = $sexe;
     }
-    public function setForce($force)
+    public function setForce($force): void
     {
         $this->force = $force;
     }
-    public function setAgilite($agilite)
+    public function setAgilite($agilite): void
     {
         $this->agilite = $agilite;
     }
-    public function setImg($img)
+    public function setImg($img): void
     {
         $this->img = $img;
     }
@@ -84,3 +101,5 @@ class Personnage
         echo "Agilite : " . $this->agilite . "<br>";
     }
 }
+
+?>
